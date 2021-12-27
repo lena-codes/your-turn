@@ -1,25 +1,39 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { ReactSortable } from "react-sortablejs";
+import { useSessionStorage } from "../hooks/useSessionStorage";
+
 import { ItemType } from "../pages"
 
 
 export const NameForm: React.FC = () => {
-    const [state, setState] = useState<ItemType[]>([]);
-    const [input, setInput] = useState<string>('');
+
+    const [stateStored, setStateStored] = useSessionStorage("state", [])
+    const [inputStored, setInputStored] = useSessionStorage("input", "")
 
     const addName = () => {
-        setState([...state, { id: state.length, name: input }])
+        setStateStored([...stateStored, { id: stateStored.length, name: inputStored }])
+        setInputStored('')
     };
+
+    useEffect(() => {
+        setStateStored(stateStored)
+        setInputStored(inputStored)
+    })
 
     return (
         <div className="text-blue-400">
-            <form onSubmit={addName}>
+            <form onSubmit={e => {
+                e.preventDefault()
+                addName()
+            }} >
                 <label htmlFor="name" className="mr-2">Name</label>
-                <input id="name" type="text" autoComplete="name" className="mr-2" required onChange={e => setInput(e.target.value)} />
+                <input value={inputStored} id="name" type="text" autoComplete="name" className="mr-2" required onChange={e => {
+                    setInputStored(e.target.value)
+                }} />
                 <button type="submit">Add</button>
             </form>
-            <ReactSortable list={state} setList={setState} >
-                {state.map((item) => (
+            <ReactSortable list={stateStored} setList={setStateStored}  >
+                {stateStored.map((item: ItemType) => (
                     <div key={item.id}>{item.name}</div>
                 ))}
             </ReactSortable>

@@ -1,10 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import React, { useEffect, useState } from 'react'
-import { ReactSortable } from 'react-sortablejs'
+import React from 'react'
 import { NameForm } from '../components/name-form'
-
-const list: string[] = [];
 
 export interface ItemType {
   id: number;
@@ -13,9 +10,6 @@ export interface ItemType {
 
 const Home: NextPage = () => {
 
-  useEffect(() => {
-    console.log(getItems())
-  }, [])
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen pr-1 flex flex-col justify-center items-center h-screen text-gray-900 dark:text-white" >
       <Head>
@@ -45,5 +39,3 @@ const Home: NextPage = () => {
 }
 
 export default Home
-
-const getItems = () => list.length
