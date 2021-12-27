@@ -1,41 +1,37 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import React, { useState, ChangeEvent } from 'react'
+import React, { useEffect, useState } from 'react'
+import { ReactSortable } from 'react-sortablejs'
+import { NameForm } from '../components/name-form'
+
+const list: string[] = [];
+
+export interface ItemType {
+  id: number;
+  name: string;
+}
 
 const Home: NextPage = () => {
 
-  const [name, setName] = useState(" ");
-
-  const handleInput = (event: any) => {
-    setName(event.target.value);
-  };
-
-  const logValue = () => {
-    return (<p>{name}</p>);
-  };
-
+  useEffect(() => {
+    console.log(getItems())
+  }, [])
   return (
-    <div className={styles.container}>
+    <div className="bg-white dark:bg-gray-900 min-h-screen pr-1 flex flex-col justify-center items-center h-screen text-gray-900 dark:text-white" >
       <Head>
         <title>Your turn</title>
-        <meta name="description" content="Randomly choose a person out of a group" />
+        <meta name="description" content="Randomly choose a person or a thing out of a group" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
+      <main className="p-20 flex-1 flex-col justify-center items-center ">
+        <h1 className="hocus:underline text-4xl m-0 text-center mb-10" >
           Whose turn is it?
         </h1>
-        <div>
-          <input onChange={handleInput} placeholder={'Enter a name'}></input>
-          <div>
-            {logValue()}
-          </div>
-        </div>
+        <NameForm />
       </main>
 
-      <footer className={styles.footer}>
+      <footer className="w-full h-1/5 border-t-2 flex justify-center items-center flex-grow-1">
         <a
           href="https://lena.codes"
           target="_blank"
@@ -49,3 +45,5 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+const getItems = () => list.length
