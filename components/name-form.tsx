@@ -1,12 +1,19 @@
-import React, { useEffect } from 'react';
-import { useSessionStorage } from '../hooks/useSessionStorage';
+import React from 'react';
 import { ItemType } from '../pages';
 import { ListItems } from './list-item';
+import Image from 'next/image';
 
-export const NameForm: React.FC = () => {
-  const [stateStored, setStateStored] = useSessionStorage('state', []);
-  const [inputStored, setInputStored] = useSessionStorage('input', '');
-
+export const NameForm = ({
+  stateStored,
+  setStateStored,
+  inputStored,
+  setInputStored
+}: {
+  stateStored: ItemType[];
+  setStateStored: Function;
+  inputStored: string;
+  setInputStored: Function;
+}) => {
   const addName = () => {
     setStateStored([
       ...stateStored,
@@ -48,9 +55,9 @@ export const NameForm: React.FC = () => {
           />
           <button
             type="submit"
-            className="bg-blue-500 dark:bg-slate-200 hover:bg-blue-700 dark:hover:bg-slate-500 text-white dark:text-gray-900 font-bold py-1 px-4 rounded shadow w-1/6"
+            className="bg-blue-500 dark:bg-slate-200 hover:bg-blue-700 dark:hover:bg-slate-500 text-white dark:text-gray-900 font-bold py-1 px-4 rounded shadow"
           >
-            Add
+            <Image width={18} height={18} src="/add-icon.svg" />
           </button>
         </form>
       </div>
