@@ -18,3 +18,9 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.item + .item {
+  margin-top: 10px;
+  border-top: 1px solid white;
+  padding-top: 10px;
+}

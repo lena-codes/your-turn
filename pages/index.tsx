@@ -10,7 +10,7 @@ export interface ItemType {
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-white dark:bg-gray-900 min-h-screen pr-1 flex flex-col justify-center items-center h-screen text-gray-900 dark:text-white">
+    <div className="bg-white dark:bg-gray-900 flex text-gray-900 dark:text-white w-full min-h-screen justify-center flex-col">
       <Head>
         <title>Your turn</title>
         <meta
@@ -20,15 +20,19 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="p-20 flex-1 flex-col justify-center items-center ">
+      <main className="p-10 flex-col w-full justify-center items-center flex">
         <h1 className="hocus:underline text-4xl m-0 text-center mb-10">
           Whose turn is it?
         </h1>
         <NameForm />
       </main>
-
-      <footer className="w-full h-1/5 border-t-2 flex justify-center items-center flex-grow-1">
-        <a href="https://lena.codes" target="_blank" rel="noopener noreferrer">
+      <footer className="w-full border-t-2 flex justify-center items-center flex-col mb-3">
+        <a
+          href="https://lena.codes"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3"
+        >
           Powered by @lena_codes
         </a>
       </footer>
