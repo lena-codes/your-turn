@@ -17,7 +17,7 @@ export const NameForm = ({
   const addName = () => {
     setStateStored([
       ...stateStored,
-      { id: stateStored.length, name: inputStored }
+      { id: Math.round(Math.random() * 10000), name: inputStored }
     ]);
     setInputStored('');
   };

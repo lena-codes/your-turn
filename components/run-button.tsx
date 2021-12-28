@@ -11,7 +11,11 @@ export const RunButton = ({
 }) => {
   const clickTheButton = () => {
     const random = getRandomInt(0, items.length);
-    return setResult(items[random].name);
+    if (items.length > 0) {
+      return setResult(items[random].name);
+    } else {
+      return setResult('Please add names first!');
+    }
   };
 
   return (
