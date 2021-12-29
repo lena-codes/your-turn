@@ -1,7 +1,10 @@
+/**
+ * Form inspired by https://github.com/markmead/hyperui
+ */
+
 import React from 'react';
 import { ItemType } from '../pages';
 import { ListItems } from './list-item';
-import Image from 'next/image';
 
 export const NameForm = ({
   stateStored,
@@ -31,7 +34,7 @@ export const NameForm = ({
 
   return (
     <div className="w-full flex flex-col">
-      <div className="flex mb-6 w-full flex-row justify-center items-center">
+      <div className="relative mb-5">
         <form
           className="text-gray-400 w-full"
           onSubmit={(e) => {
@@ -39,25 +42,36 @@ export const NameForm = ({
             addName();
           }}
         >
-          <label htmlFor="name" className="mr-3 text-gray-500 font-bold w-1/6">
+          <label htmlFor="name" className="sr-only">
             Name
           </label>
           <input
             value={inputStored}
             id="name"
             type="text"
-            autoComplete="name"
-            className="mr-3 w-4/6"
+            placeholder="Enter name..."
+            className="block w-full h-16 pl-4 pr-16 border-2 border-gray-200 rounded-xl sm:text-sm"
             required
             onChange={(e) => {
               setInputStored(e.target.value);
             }}
           />
           <button
-            type="submit"
-            className="bg-blue-500 dark:bg-slate-200 hover:bg-blue-700 dark:hover:bg-slate-500 text-white dark:text-gray-900 font-bold py-1 px-4 rounded shadow"
+            type="button"
+            className="absolute p-2 text-white transform -translate-y-1/2 bg-blue-600 rounded-full shadow-lg hover:bg-blue-500 right-4 top-1/2"
           >
-            <Image width={18} height={18} src="/add-icon.svg" />
+            <svg
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                clipRule="evenodd"
+              ></path>
+            </svg>
           </button>
         </form>
       </div>

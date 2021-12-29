@@ -4,6 +4,14 @@ import React from 'react';
 import { NameForm } from '../components/name-form';
 import { useSessionStorage } from '../hooks/useSessionStorage';
 import { RunButton } from '../components/run-button';
+import { Footer } from '../components/footer';
+import { Card } from '../components/card';
+import dynamic from 'next/dynamic';
+
+const DynamicComponentWithNoSSR = dynamic(
+  () => import('@themesberg/flowbite'),
+  { ssr: false }
+);
 
 export interface ItemType {
   id: number;
@@ -26,29 +34,33 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="p-10 flex-col w-full justify-center items-center flex">
-        <h1 className="hocus:underline text-4xl m-0 text-center mb-10">
-          Whose turn is it?
-        </h1>
-        <NameForm
-          setStateStored={setStateStored}
-          stateStored={stateStored}
-          inputStored={inputStored}
-          setInputStored={setInputStored}
-        />
-        <RunButton items={stateStored} setResult={setResult} />
-        <p className="mt-5 text-fuchsia-400">{result}</p>
+      <main className="p-10 w-full flex">
+        <div className="flex flex-col w-1/2 p-5">
+          <h1 className="hocus:underline text-4xl m-0 text-center mb-10">
+            Whose turn is it?
+          </h1>
+          <NameForm
+            setStateStored={setStateStored}
+            stateStored={stateStored}
+            inputStored={inputStored}
+            setInputStored={setInputStored}
+          />
+        </div>
+        <div className="flex flex-col w-1/2 p-2">
+          <Card>
+            <div className="flex flex-row w-full">
+              <div className="w-1/2">
+                <p className="mt-5">It&apos;s your turn:</p>
+                <p className="mt-5 text-2xl">{result}</p>
+              </div>
+              <div className="items-end w-1/2">
+                <RunButton items={stateStored} setResult={setResult} />
+              </div>
+            </div>
+          </Card>
+        </div>
       </main>
-      <footer className="w-full border-t-2 flex justify-center items-center flex-col mb-3">
-        <a
-          href="https://lena.codes"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3"
-        >
-          Powered by @lena_codes
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 };
