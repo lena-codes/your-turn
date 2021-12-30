@@ -1,6 +1,7 @@
 import React from 'react';
 import { ItemType } from '../pages';
 import { Card } from './card';
+import { DeleteIcon } from './icons/delete-icon';
 
 export const ListItems = ({
   items,
@@ -18,18 +19,7 @@ export const ListItems = ({
               <li key={item.id} className="flex w-full justify-between">
                 <p>{item.name}</p>
                 <button className="px-2" onClick={() => onRemove(item.id)}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6 dark:text-white"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <DeleteIcon />
                 </button>
               </li>
             </div>
