@@ -1,6 +1,6 @@
 import React from 'react';
 import { ItemType } from '../pages';
-import { Card } from './card';
+import { Card } from './card/card';
 import { DeleteIcon } from './icons/delete-icon';
 
 export const ListItems = ({

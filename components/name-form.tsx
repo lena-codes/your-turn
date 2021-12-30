@@ -6,6 +6,7 @@ import React from 'react';
 import { ItemType } from '../pages';
 import { AddIcon } from './icons/add-icon';
 import { ListItems } from './list-items';
+import { RoundButton } from './button/round-button';
 
 export const NameForm = ({
   stateStored,
@@ -35,7 +36,7 @@ export const NameForm = ({
 
   return (
     <div className="w-full flex flex-col">
-      <div className="relative mb-5">
+      <div className="relative">
         <form
           className="text-gray-400 w-full"
           onSubmit={(e) => {
@@ -57,12 +58,9 @@ export const NameForm = ({
               setInputStored(e.target.value);
             }}
           />
-          <button
-            type="button"
-            className="absolute p-2 text-white transform -translate-y-1/2 bg-blue-600 rounded-full shadow-lg hover:bg-blue-500 right-4 top-1/2"
-          >
+          <RoundButton>
             <AddIcon />
-          </button>
+          </RoundButton>
         </form>
       </div>
       <ListItems items={stateStored} onRemove={removeName} />

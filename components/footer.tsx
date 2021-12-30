@@ -6,8 +6,8 @@ import React from 'react';
 
 export const Footer = () => {
   return (
-    <footer className="bg-gray-50">
-      <div className="max-w-screen-xl px-4 py-16 space-y-12 sm:px-6 lg:px-8">
+    <footer className="bg-gray-50 w-full flex">
+      <div className="px-10 py-16 space-y-12">
         <p className="text-xs text-gray-500 text-left">
           &copy; {` 2021 powered by `}
           <a
