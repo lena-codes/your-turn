@@ -5,7 +5,7 @@
 import React from 'react';
 import { ItemType } from '../pages';
 import { AddIcon } from './icons/add-icon';
-import { ListItems } from './list-item';
+import { ListItems } from './list-items';
 
 export const NameForm = ({
   stateStored,
