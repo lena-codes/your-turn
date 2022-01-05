@@ -45,7 +45,7 @@ export const NameForm = () => {
               setInput(e.target.value);
             }}
           />
-          <RoundButton onClick={() => addName}>
+          <RoundButton onClick={() => addName()}>
             <AddIcon />
           </RoundButton>
         </form>
