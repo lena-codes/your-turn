@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card } from './card';
 import { getTurn } from '../../lib/result-reducer';
 import { useAppDispatch } from '../../hooks/redux-helper';
@@ -12,6 +12,15 @@ interface TurnCardProps {
 
 export const TurnCard = (props: TurnCardProps) => {
   const dispatch = useAppDispatch();
+  const [loading, setLoading] = useState(false);
+  const run = () => {
+    setLoading(true);
+    setTimeout(() => {
+      dispatch(getTurn(props.names));
+      setLoading(false);
+    }, 100);
+  };
+
   return (
     <Card>
       <div className="flex w-full flex-col">
@@ -20,7 +29,7 @@ export const TurnCard = (props: TurnCardProps) => {
             Whose turn is it?
           </h1>
           <button
-            onClick={() => dispatch(getTurn(props.names))}
+            onClick={() => run()}
             className="btn-primary rounded-lg max-w-30 max-h-12"
           >
             <RunIcon />
@@ -29,7 +38,7 @@ export const TurnCard = (props: TurnCardProps) => {
         </div>
         <div className="flex">
           <p className="mt-5 mr-5">It&apos;s your turn:</p>
-          <p className="mt-5 text-2xl">{props.result}</p>
+          <p className="mt-5 text-2xl">{loading ? '' : props.result}</p>
         </div>
       </div>
     </Card>
