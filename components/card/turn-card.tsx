@@ -3,7 +3,7 @@ import { Card } from './card';
 import { getTurn } from '../../lib/result-reducer';
 import { useAppDispatch } from '../../hooks/redux-helper';
 import { ItemType } from '../../lib/utils';
-import { RunIcon } from '../icons/run-icon';
+import { PlayIcon } from '@heroicons/react/outline';
 
 interface TurnCardProps {
   result: string;
@@ -32,13 +32,15 @@ export const TurnCard = (props: TurnCardProps) => {
             onClick={() => run()}
             className="btn-primary rounded-lg max-w-30 max-h-12"
           >
-            <RunIcon />
-            <span>Run</span>
+            <PlayIcon height={20} width={20} />
+            <span className="ml-1">Run</span>
           </button>
         </div>
-        <div className="flex">
-          <p className="mt-5 mr-5">It&apos;s your turn:</p>
-          <p className="mt-5 text-2xl">{loading ? '' : props.result}</p>
+        <div className="flex h-20 text-center items-center">
+          <p className="mt-5 mr-5">
+            {props.result === '' ? null : "It's your turn:"}
+          </p>
+          <p className="mt-5 text-2xl">{loading ? null : props.result}</p>
         </div>
       </div>
     </Card>

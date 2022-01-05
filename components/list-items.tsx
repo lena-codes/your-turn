@@ -1,9 +1,9 @@
+import { TrashIcon } from '@heroicons/react/solid';
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/redux-helper';
 import { remove } from '../lib/list-reducer';
 import { ItemType } from '../lib/utils';
 import { Card } from './card/card';
-import { DeleteIcon } from './icons/delete-icon';
 
 export const ListItems = () => {
   const dispatch = useAppDispatch();
@@ -20,7 +20,7 @@ export const ListItems = () => {
                   className="px-2"
                   onClick={() => dispatch(remove(item.id))}
                 >
-                  <DeleteIcon />
+                  <TrashIcon height={20} width={20} color="black" />
                 </button>
               </li>
             </div>
