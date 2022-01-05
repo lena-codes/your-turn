@@ -2,6 +2,7 @@ import React from 'react';
 import { ItemType } from '../../pages';
 import { Button } from './button';
 import { RunIcon } from '../icons/run-icon';
+import { determineTurn } from '../../lib/logic';
 
 export const RunButton = ({
   items,
@@ -11,24 +12,15 @@ export const RunButton = ({
   setResult: Function;
 }) => {
   const clickTheButton = () => {
-    const random = getRandomInt(0, items.length);
-    if (items.length > 0) {
-      return setResult(items[random].name);
-    } else {
-      return setResult('Please add names first!');
-    }
+    return setResult(determineTurn(items));
   };
 
   return (
-    <Button onClick={clickTheButton}>
-      <RunIcon />
-      <span>Run</span>
-    </Button>
+    <>
+      <Button onClick={clickTheButton} className="rounded-lg">
+        <RunIcon />
+        <span>Run</span>
+      </Button>
+    </>
   );
 };
-
-function getRandomInt(min: number, max: number) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
-}
