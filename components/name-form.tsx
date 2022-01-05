@@ -5,7 +5,6 @@
 import React, { useState } from 'react';
 import { AddIcon } from './icons/add-icon';
 import { ListItems } from './list-items';
-import { RoundButton } from './button/round-button';
 import { add } from '../lib/list-reducer';
 import { useAppDispatch } from '../hooks/redux-helper';
 
@@ -14,8 +13,7 @@ export const NameForm = () => {
   const dispatch = useAppDispatch();
 
   const addName = () => {
-    console.log(input);
-    if (input || input !== '') {
+    if (input !== '') {
       dispatch(add(input));
       setInput('');
     }
@@ -45,9 +43,12 @@ export const NameForm = () => {
               setInput(e.target.value);
             }}
           />
-          <RoundButton onClick={() => addName()}>
+          <button
+            onClick={() => addName()}
+            className="btn-primary absolute p-2 transform -translate-y-1/2 rounded-full shadow-lg right-4 top-1/2"
+          >
             <AddIcon />
-          </RoundButton>
+          </button>
         </form>
       </div>
       <ListItems />

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card } from './card';
-import { RunButton } from '../button/run-button';
 import { getTurn } from '../../lib/result-reducer';
 import { useAppDispatch } from '../../hooks/redux-helper';
 import { ItemType } from '../../lib/utils';
+import { RunIcon } from '../icons/run-icon';
 
 interface TurnCardProps {
   result: string;
@@ -19,7 +19,13 @@ export const TurnCard = (props: TurnCardProps) => {
           <h1 className="hocus:underline text-4xl m-0 text-center mb-10">
             Whose turn is it?
           </h1>
-          <RunButton onClick={() => dispatch(getTurn(props.names))} />
+          <button
+            onClick={() => dispatch(getTurn(props.names))}
+            className="btn-primary rounded-lg max-w-30 max-h-12"
+          >
+            <RunIcon />
+            <span>Run</span>
+          </button>
         </div>
         <div className="flex">
           <p className="mt-5 mr-5">It&apos;s your turn:</p>
