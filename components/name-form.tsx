@@ -37,7 +37,7 @@ export const NameForm = () => {
             id="name"
             type="text"
             placeholder="Name"
-            className="block w-full h-16 pl-4 pr-16 border-2 border-gray-200 rounded-xl sm:text-sm"
+            className="block w-full h-16 pl-4 pr-16 border-2 border-gray-200 dark:border-gray-600 rounded-xl sm:text-sm bg-white dark:bg-slate-800"
             onChange={(e) => {
               setInput(e.target.value);
             }}

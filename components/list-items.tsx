@@ -20,7 +20,7 @@ export const ListItems = () => {
                   className="px-2"
                   onClick={() => dispatch(remove(item.id))}
                 >
-                  <TrashIcon height={20} width={20} color="black" />
+                  <TrashIcon height={20} width={20} />
                 </button>
               </li>
             </div>
