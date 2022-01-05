@@ -38,7 +38,6 @@ export const NameForm = () => {
             type="text"
             placeholder="Name"
             className="block w-full h-16 pl-4 pr-16 border-2 border-gray-200 rounded-xl sm:text-sm"
-            required
             onChange={(e) => {
               setInput(e.target.value);
             }}
