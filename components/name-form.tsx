@@ -2,33 +2,23 @@
  * Form inspired by https://github.com/markmead/hyperui
  */
 
-import React from 'react';
-import { ItemType } from '../pages';
+import React, { useState } from 'react';
 import { AddIcon } from './icons/add-icon';
 import { ListItems } from './list-items';
 import { RoundButton } from './button/round-button';
-import { addItem, getRandomId, removeItem } from '../lib/logic';
+import { add } from '../lib/list-reducer';
+import { useAppDispatch } from '../hooks/redux-helper';
 
-export const NameForm = ({
-  stateStored,
-  setStateStored,
-  inputStored,
-  setInputStored
-}: {
-  stateStored: ItemType[];
-  setStateStored: Function;
-  inputStored: string;
-  setInputStored: Function;
-}) => {
+export const NameForm = () => {
+  const [input, setInput] = useState('');
+  const dispatch = useAppDispatch();
+
   const addName = () => {
-    if (inputStored != '') {
-      setStateStored(addItem(inputStored, stateStored));
-      setInputStored('');
+    console.log(input);
+    if (input || input !== '') {
+      dispatch(add(input));
+      setInput('');
     }
-  };
-
-  const removeName = (id: string) => {
-    setStateStored(removeItem(id, stateStored));
   };
 
   return (
@@ -45,22 +35,22 @@ export const NameForm = ({
             Name
           </label>
           <input
-            value={inputStored}
+            value={input}
             id="name"
             type="text"
-            placeholder="Enter name..."
+            placeholder="Name"
             className="block w-full h-16 pl-4 pr-16 border-2 border-gray-200 rounded-xl sm:text-sm"
             required
             onChange={(e) => {
-              setInputStored(e.target.value);
+              setInput(e.target.value);
             }}
           />
-          <RoundButton onClick={addName}>
+          <RoundButton onClick={() => addName}>
             <AddIcon />
           </RoundButton>
         </form>
       </div>
-      <ListItems items={stateStored} onRemove={removeName} />
+      <ListItems />
     </div>
   );
 };

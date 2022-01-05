@@ -1,23 +1,17 @@
 import React from 'react';
-import { ItemType } from '../../pages';
 import { Button } from './button';
 import { RunIcon } from '../icons/run-icon';
-import { determineTurn } from '../../lib/logic';
 
-export const RunButton = ({
-  items,
-  setResult
-}: {
-  items: ItemType[];
-  setResult: Function;
-}) => {
-  const clickTheButton = () => {
-    return setResult(determineTurn(items));
-  };
+interface ButtonProps {
+  onClick: Function;
+}
 
+export const RunButton: React.FC<
+  ButtonProps & React.HTMLProps<HTMLButtonElement>
+> = (props) => {
   return (
     <>
-      <Button onClick={clickTheButton} className="rounded-lg">
+      <Button onClick={props.onClick} className="rounded-lg">
         <RunIcon />
         <span>Run</span>
       </Button>
