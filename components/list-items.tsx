@@ -12,7 +12,7 @@ export const ListItems = () => {
     <div className="flex flex-col w-full h-[30rem] overflow-scroll">
       <ul>
         {names.map((item: ItemType) => (
-          <Card>
+          <Card key={item.id + '-card'}>
             <div className="flex w-full" key={item.id + '-container'}>
               <li key={item.id} className="flex w-full justify-between">
                 <p>{item.name}</p>
