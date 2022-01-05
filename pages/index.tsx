@@ -15,7 +15,7 @@ const DynamicComponentWithNoSSR = dynamic(
 );
 
 export interface ItemType {
-  id: number;
+  id: string;
   name: string;
 }
 

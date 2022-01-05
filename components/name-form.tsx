@@ -7,6 +7,7 @@ import { ItemType } from '../pages';
 import { AddIcon } from './icons/add-icon';
 import { ListItems } from './list-items';
 import { RoundButton } from './button/round-button';
+import { addItem, getRandomId, removeItem } from '../lib/logic';
 
 export const NameForm = ({
   stateStored,
@@ -20,18 +21,14 @@ export const NameForm = ({
   setInputStored: Function;
 }) => {
   const addName = () => {
-    setStateStored([
-      ...stateStored,
-      { id: Math.round(Math.random() * 10000), name: inputStored }
-    ]);
-    setInputStored('');
+    if (inputStored != '') {
+      setStateStored(addItem(inputStored, stateStored));
+      setInputStored('');
+    }
   };
 
-  const removeName = (id: number) => {
-    const newStateStored: ItemType[] = (stateStored as ItemType[]).filter(
-      (item) => id !== item.id
-    );
-    setStateStored(newStateStored);
+  const removeName = (id: string) => {
+    setStateStored(removeItem(id, stateStored));
   };
 
   return (
@@ -58,7 +55,7 @@ export const NameForm = ({
               setInputStored(e.target.value);
             }}
           />
-          <RoundButton>
+          <RoundButton onClick={addName}>
             <AddIcon />
           </RoundButton>
         </form>
