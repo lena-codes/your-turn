@@ -14,7 +14,7 @@ const Home: NextPage = () => {
   const names = useAppSelector((state) => state.names);
 
   return (
-    <div className="text-gray-900 dark:text-white w-full bg-blue-400 bg-repeat bg-i-like-food flex flex-col h-full">
+    <div className="text-gray-900 dark:text-white w-full bg-blue-400 bg-repeat bg-i-like-food flex flex-col min-h-full">
       <Head>
         <title>Your turn</title>
         <meta
