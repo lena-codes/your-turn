@@ -14,7 +14,7 @@ const Home: NextPage = () => {
   const names = useAppSelector((state) => state.names);
 
   return (
-    <div className="flex text-gray-900 dark:text-white w-full min-h-screen justify-between flex-col bg-blue-400 bg-repeat bg-i-like-food">
+    <div className="text-gray-900 dark:text-white w-full bg-blue-400 bg-repeat bg-i-like-food flex flex-col min-h-full">
       <Head>
         <title>Your turn</title>
         <meta
@@ -24,13 +24,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="p-10 w-full flex flex-col max-w-4xl">
+      <main className="w-full max-w-4xl p-10 flex flex-col flex-auto">
         <div className="flex flex-col mb-5">
           <TurnCard result={result} names={names} />
         </div>
-        <div className="flex flex-col">
-          <NameForm />
-        </div>
+        <NameForm />
       </main>
       <Footer />
     </div>
