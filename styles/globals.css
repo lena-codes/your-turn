@@ -30,12 +30,6 @@ a:hover {
   text-decoration: underline;
 }
 
-.box{
-  display: flex;
-  flex-flow: column;
-  height: 100%;
-}
-
 * {
   box-sizing: border-box;
 }
