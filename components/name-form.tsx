@@ -37,14 +37,14 @@ export const NameForm = () => {
             id="name"
             type="text"
             placeholder="Name"
-            className="block w-full h-16 pl-4 pr-16 border-2 border-gray-200 dark:border-gray-600 rounded-xl sm:text-sm bg-white dark:bg-slate-800"
+            className="block w-full h-16 pl-4 pr-16  focus:ring-blue-300 rounded-xl sm:text-sm bg-white dark:bg-slate-800"
             onChange={(e) => {
               setInput(e.target.value);
             }}
           />
           <button
             onClick={() => addName()}
-            className="btn-primary absolute p-2 transform -translate-y-1/2 rounded-full shadow-lg right-4 top-1/2"
+            className="btn-primary absolute p-2 transform -translate-y-1/2 rounded-full shadow-lg right-4 top-1/2 mr-0"
           >
             <PlusIcon height={20} width={20} />
           </button>
