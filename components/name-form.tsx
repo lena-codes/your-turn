@@ -20,7 +20,7 @@ export const NameForm = () => {
   };
 
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col md:max-h-[60vh] max-h-[50vh] overflow-scroll">
       <div className="relative">
         <form
           className="text-gray-400 w-full"
