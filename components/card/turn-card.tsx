@@ -28,13 +28,15 @@ export const TurnCard = (props: TurnCardProps) => {
           <h1 className="hocus:underline text-4xl m-0 text-center mb-10">
             Whose turn is it?
           </h1>
-          <button
-            onClick={() => run()}
-            className="btn-primary rounded-lg max-w-30 max-h-12"
-          >
-            <PlayIcon height={20} width={20} />
-            <span className="ml-1">Run</span>
-          </button>
+          <div className="tooltip" data-tip="Run the app">
+            <button
+              onClick={() => run()}
+              className="btn btn-primary rounded-lg max-w-30 max-h-12"
+            >
+              <PlayIcon height={20} width={20} />
+              <span className="ml-1">Run</span>
+            </button>
+          </div>
         </div>
         <div className="flex h-20 text-center items-center">
           <p className="mt-5 mr-5">

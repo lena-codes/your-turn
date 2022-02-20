@@ -3,11 +3,8 @@ import Head from 'next/head';
 import React from 'react';
 import { NameForm } from '../components/name-form';
 import { Footer } from '../components/footer';
-import dynamic from 'next/dynamic';
 import { TurnCard } from '../components/card/turn-card';
 import { useAppSelector } from '../hooks/redux-helper';
-
-dynamic(() => import('@themesberg/flowbite'), { ssr: false });
 
 const Home: NextPage = () => {
   const result: string = useAppSelector((state) => state.result);

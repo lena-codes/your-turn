@@ -9,7 +9,7 @@ module.exports = {
         'i-like-food': "url('../public/img/i-like-food.svg')"
       }
     },
-    plugins: [require('@themesberg/flowbite/plugin')],
     darkMode: 'class'
-  }
+  },
+  plugins: [require('daisyui')]
 };

@@ -1,2 +1,2 @@
-declare module '@themesberg/flowbite';
-declare module '@themesberg/flowbite/plugin';
+declare module 'daisyui';
+declare module 'daisyui/plugin';
