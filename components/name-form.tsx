@@ -46,7 +46,9 @@ export const NameForm = () => {
             onClick={() => addName()}
             className="btn-primary absolute p-2 transform -translate-y-1/2 rounded-full shadow-lg right-4 top-1/2 mr-0"
           >
-            <PlusIcon height={20} width={20} />
+            <div className="tooltip tooltip-left" data-tip="Add">
+              <PlusIcon height={20} width={20} />
+            </div>
           </button>
         </form>
       </div>
