@@ -9,7 +9,7 @@ export const ListItems = () => {
   const dispatch = useAppDispatch();
   const names = useAppSelector((state) => state.names);
   return (
-    <div className="flex flex-col w-full overflow-scroll">
+    <div className="flex flex-col w-full overflow-y-auto">
       <ul>
         {names.map((item: ItemType) => (
           <Card key={item.id + '-card'}>
